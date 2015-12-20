@@ -26,3 +26,4 @@ module TestMongoId
     # config.i18n.default_locale = :de
   end
 end
+require "attachinary/orm/mongoid"

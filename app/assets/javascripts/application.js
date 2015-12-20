@@ -13,5 +13,20 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require_tree .
 //= require twitter/bootstrap
+//= require jquery.ui.widget
+//= require jquery.iframe-transport
+//= require jquery.fileupload
+//= require cloudinary/jquery.cloudinary
+//= require my_attachinary
+//= require_tree .
+
+var ready;
+ready = function() {
+  
+  $('.attachinary-input').attachinary();
+  
+};
+
+$(document).ready(ready);
+$(document).on('page:load', ready);

@@ -29,3 +29,7 @@ gem "twitter-bootstrap-rails"
 gem "factory_girl_rails", "~> 4.0"
 gem 'simple_form', github: 'plataformatec/simple_form', branch: 'master'
 gem "slim-rails"
+gem 'cloudinary'
+gem 'attachinary'
+gem 'devise'
+

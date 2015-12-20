@@ -1,10 +1,35 @@
-= simple_form_for(@message) do |f|
+button.more Click to send a new message
+
+= simple_form_for(@message, :remote => true)  do |f|
   = f.error_notification
 
   .form-inputs
-    = f.input :name
-    = f.input :body
-    = f.input :processed
+    = f.input :name, required: true
+    = f.input :body, required: true
+    = f.input :the_gif, as: :attachinary
 
   .form-actions
     = f.button :submit
+
+javascript:
+  jQuery(function($){ 
+     $(".more").hide();
+
+     $(".more").on("click", function(){
+      $("form").show();
+      $(".more").hide();
+      $("#message_name").val("");
+      $("#message_body").val("");
+     });
+
+     $("form")
+        .bind('ajax:success', 
+          function(data, status, xhr) 
+          {
+            console.log("ok!")
+            $("form").hide();
+            $(".more").show();
+          })
+        .bind('ajax:error', function(xhr, status, error) {console.log("failure!");})
+        .bind('ajax:complete', function() {console.log("complete!");});
+  });
