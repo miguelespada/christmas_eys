@@ -6,7 +6,7 @@ gem 'rails', '4.0.2'
 ruby '2.2.2'
 
 gem "bson_ext"
-gem "mongoid", ">= 2.0.0.beta.19"
+gem 'mongoid', '~> 5.0'
 
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
