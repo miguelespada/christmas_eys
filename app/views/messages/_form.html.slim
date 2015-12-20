@@ -4,9 +4,9 @@ button.more Click to send a new message
   = f.error_notification
 
   .form-inputs
-    = f.input :name, required: true
-    = f.input :body, required: true
-    = f.input :the_gif, as: :attachinary
+    = f.input :name, required: true, :label => "Dinos tu nombre!"
+    = f.input :body, required: true, :label => "Mándanos un mensaje!"
+    = f.input :the_gif, as: :attachinary, :label => "Aquí va tu gif!"
 
   .form-actions
     = f.button :submit
