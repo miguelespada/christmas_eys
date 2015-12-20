@@ -32,4 +32,4 @@ gem "slim-rails"
 gem 'cloudinary'
 gem 'attachinary'
 gem 'devise'
-
+gem 'rails_12factor', group: :production
