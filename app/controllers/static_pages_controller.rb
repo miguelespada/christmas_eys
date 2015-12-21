@@ -5,5 +5,8 @@ class StaticPagesController < ApplicationController
   def thanks
     render :layout => "application_2"
   end
+  def plantilla
+    render :layout => false
+  end
 
 end
