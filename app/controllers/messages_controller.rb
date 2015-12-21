@@ -15,9 +15,9 @@ class MessagesController < ApplicationController
     #   msg.save
     # end
     if !msg
-      mas = Message.desc(:created_at).first
+      msg = Message.desc(:created_at).first
     end
-    
+
     msg.url = msg.the_gif.path
 
     respond_to do |format|
