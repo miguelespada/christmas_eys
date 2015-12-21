@@ -1,35 +1,14 @@
-button.more Click to send a new message
+div#main
+  div#info
+    = image_tag("info.png", {:id => "info-image"})
+  div#forms-all
+    = simple_form_for(@message,)  do |f|
+      = f.error_notification
 
-= simple_form_for(@message, :remote => true)  do |f|
-  = f.error_notification
+      .form-inputs
+        = f.input :name, required: true, :label => "Dinos tu nombre!"
+        = f.input :body, required: true, :label => "Mándanos un mensaje!"
+        = f.input :the_gif, as: :attachinary, :label => "Sube tu gif!"
 
-  .form-inputs
-    = f.input :name, required: true, :label => "Dinos tu nombre!"
-    = f.input :body, required: true, :label => "Mándanos un mensaje!"
-    = f.input :the_gif, as: :attachinary, :label => "Aquí va tu gif!"
-
-  .form-actions
-    = f.button :submit
-
-javascript:
-  jQuery(function($){ 
-     $(".more").hide();
-
-     $(".more").on("click", function(){
-      $("form").show();
-      $(".more").hide();
-      $("#message_name").val("");
-      $("#message_body").val("");
-     });
-
-     $("form")
-        .bind('ajax:success', 
-          function(data, status, xhr) 
-          {
-            console.log("ok!")
-            $("form").hide();
-            $(".more").show();
-          })
-        .bind('ajax:error', function(xhr, status, error) {console.log("failure!");})
-        .bind('ajax:complete', function() {console.log("complete!");});
-  });
+      .form-actions
+        = f.button :submit

@@ -1,4 +1,13 @@
-= stylesheet_link_tag "body"
+= stylesheet_link_tag "home"
 
-div#eys
-  = link_to  image_tag("logo.png", {:id => "logo"}), stream_path, target: '_blank'
+div#title
+  = image_tag "pimp-title.png", {:id => "pimp-title-image"}
+div#info
+
+  div#eys
+    = link_to  image_tag("logo-live.png", {:id => "logo"}), stream_path, target: '_blank'
+  div#pimp-it
+    = image_tag "upload-gif.png", {:id => "pimp-image"}
+    = link_to  image_tag("upload-gif.png", {:id => "pimp-image-hover"}), new_message_path
+  div#footer
+    = image_tag "win.png", {:id => "win-footer-image"}

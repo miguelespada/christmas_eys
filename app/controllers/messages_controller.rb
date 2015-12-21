@@ -22,14 +22,14 @@ class MessagesController < ApplicationController
     end
   end
 
+  def new
+    @message = Message.new
+  end
+  
   def create
     @message = Message.new(message_params)
-    if @message.save
-      render json: @message
-    else
-      render json: @message.errors, status: :unprocessable_entity
-    end
-
+    @message.save
+    redirect_to thanks_path
   end
 
 

@@ -5,7 +5,8 @@ TestMongoId::Application.routes.draw do
 
   get "last", to: "messages#last"
   get "stream", to: "static_pages#stream"
-  resources :messages, :only => [:create]
+  get "thanks", to: "static_pages#thanks"
+  resources :messages, :only => [:create, :new]
   
   namespace :admin do
     resources :messages do 
