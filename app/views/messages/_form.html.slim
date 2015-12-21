@@ -2,6 +2,7 @@ div#main
   div#info
     = image_tag("info.png", {:id => "info-image"})
   div#forms-all
+    = link_to  "Descargar plantilla", plantilla_path,  {:id => "plantilla"}
     = simple_form_for(@message,)  do |f|
       = f.error_notification
 

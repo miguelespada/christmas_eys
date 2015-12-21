@@ -4,6 +4,7 @@ class Admin::MessagesController < ApplicationController
 
   def index
     @messages = Message.all.paginate(:page => params[:page], :per_page => 20)
+    render :layout => "admin"
   end
   
   def destroy
