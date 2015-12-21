@@ -8,7 +8,10 @@ TestMongoId::Application.routes.draw do
   resources :messages, :only => [:create]
   
   namespace :admin do
-    resources :messages
+    resources :messages do 
+      get "favorite"
+      get "unfavorite"
+    end
   end
 
   root to: "static_pages#home"

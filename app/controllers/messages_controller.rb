@@ -3,9 +3,10 @@ class MessagesController < ApplicationController
 
   def last
     msg = Message.where(processed: :false).asc(:created_at).first
+    
     if !msg
-      offset = rand(Message.count)
-      msg = Message.offset(offset).first
+      offset = rand(Message.where(favorited: :true).count)
+      msg = Message.where(favorited: :true).offset(offset).first
     else
       msg.processed = true
       msg.save
@@ -28,8 +29,10 @@ class MessagesController < ApplicationController
 
   end
 
+
   private
     def message_params
       params.require(:message).permit(:name, :body, :the_gif)
     end
+
 end

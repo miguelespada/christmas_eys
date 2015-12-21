@@ -9,6 +9,7 @@ class Message
   field :body, type: String
   field :url, type: String
   field :processed, type: Boolean, default: :false
+  field :favorited, type: Boolean, default: :false
   has_attachment  :the_gif, accept: [:gif]
 
   validates :the_gif, presence: true

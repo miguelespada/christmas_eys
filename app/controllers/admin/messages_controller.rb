@@ -11,6 +11,20 @@ class Admin::MessagesController < ApplicationController
     redirect_to admin_messages_url, notice: 'GIF was successfully destroyed.'
   end
 
+  def favorite
+    @message = Message.find(params[:message_id])
+    @message.favorited = true
+    @message.save
+    redirect_to admin_messages_path
+  end
+
+  def unfavorite
+    @message = Message.find(params[:message_id])
+    @message.favorited = false
+    @message.save
+    redirect_to admin_messages_path
+  end
+
   private
     def set_message
       @message = Message.find(params[:id])

@@ -7,12 +7,18 @@ table
       th Body
       th GIF
       th
+      th
 
   tbody
     - @messages.each do |message|
       tr
         td = message.name
         td = message.body
+        td
+          - if message.favorited
+            = link_to 'Unfavorite', admin_message_unfavorite_path(message)
+          - else
+            = link_to 'Favorite', admin_message_favorite_path(message)
         td 
           - if message.the_gif?
             = cl_image_tag( message.the_gif.path, { size: '80x60', crop: :fit }) 
