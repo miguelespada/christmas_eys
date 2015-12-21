@@ -3,7 +3,7 @@ class Admin::MessagesController < ApplicationController
   before_action :set_message, only: [:destroy]
 
   def index
-    @messages = Message.all
+    @messages = Message.all.paginate(:page => params[:page], :per_page => 20)
   end
   
   def destroy

@@ -33,3 +33,4 @@ gem 'cloudinary'
 gem 'attachinary'
 gem 'devise'
 gem 'rails_12factor', group: :production
+gem "will_paginate_mongoid"

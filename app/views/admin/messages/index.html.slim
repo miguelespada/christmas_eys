@@ -24,3 +24,4 @@ table
             = cl_image_tag( message.the_gif.path, { size: '80x60', crop: :fit }) 
         td = link_to 'Destroy', admin_message_path(message), :method => :delete
 
+= will_paginate @messages

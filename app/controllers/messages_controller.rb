@@ -7,6 +7,9 @@ class MessagesController < ApplicationController
     if !msg
       offset = rand(Message.where(favorited: :true).count)
       msg = Message.where(favorited: :true).offset(offset).first
+      if !msg
+        msg = Message.first
+      end
     else
       msg.processed = true
       msg.save
