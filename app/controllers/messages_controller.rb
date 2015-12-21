@@ -24,6 +24,8 @@ class MessagesController < ApplicationController
 
   def new
     @message = Message.new
+
+    render :layout => "application_1"
   end
   
   def create
