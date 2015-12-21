@@ -4,19 +4,19 @@ class MessagesController < ApplicationController
   def last
     msg = Message.where(processed: :false).asc(:created_at).first
     
-    # if !msg
-    #   offset = rand(Message.where(favorited: :true).count)
-    #   msg = Message.where(favorited: :true).offset(offset).first
-    #   if !msg
-    #     msg = Message.first
-    #   end
-    # else
-    #   msg.processed = true
-    #   msg.save
-    # end
     if !msg
-      msg = Message.desc(:created_at).first
+      offset = rand(Message.where(favorited: :true).count)
+      msg = Message.where(favorited: :true).offset(offset).first
+      if !msg
+        msg = Message.first
+      end
+    else
+      msg.processed = true
+      msg.save
     end
+    # if !msg
+    #   msg = Message.desc(:created_at).first
+    # end
 
     msg.url = msg.the_gif.path
 
