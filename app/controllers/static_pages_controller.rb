@@ -8,5 +8,9 @@ class StaticPagesController < ApplicationController
   def plantilla
     render :layout => false
   end
+  
+  def offline
+    render :layout => "application_2"
+  end
 
 end
